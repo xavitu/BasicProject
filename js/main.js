@@ -4,8 +4,10 @@ var checkTime;
 var init = function() {
   // TODO:: Do your initialization job
   console.log('init() called');
-  
+  $.ajaxSetup({'cache':true});
+
   getPrices($);
+  callapi();
 
   document.addEventListener('visibilitychange', function() {
     if (document.hidden) {
@@ -58,61 +60,43 @@ function checkTime(i) {
   return i;
 }
 
-function callapi(){
-	  $.ajax({
-	    url: 'https://sandbox.coinmarketcap.com/v1/cryptocurrency/listings/latest',
-	    headers: {
-	        'X-CMC_PRO_API_KEY': 'cef0c950-831e-4cff-837c-1b81ddc7470b'
-	    },
-	    type: "GET", /* or type:"GET" or type:"PUT" */
-	    dataType: "jsonp",
-	    json: true,
-	    gzip: true,
-	    success: function (result) {
-	        console.log(result);
-	    },
-	    error: function () {
-	        console.log("error");
-	    }
-	});
+function logResults(json){
+  console.log(json);
+}
+function callapi() {
+
+  $.get({
+    url: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/info',
+    dataType: 'json',
+    data: {
+      'CMC_PRO_API_KEY': 'cef0c950-831e-4cff-837c-1b81ddc7470b',
+      id: 1,
+    },
+    success: function(data) {
+      logResults(data);
+    },
+    error: function() {
+      console.log("error");
+    }
+  });
 
 }
 
-function getPrices($){
-	var resp = $.getJSON('https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=EUR');
-    resp.done(function(data){
-    	$('#Bitcoin').text(data[0].price_eur);
-    });
-    var resp = $.getJSON('https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=EUR');
-    resp.done(function(data){
-    	$('#Ethereum').text(data[0].price_eur);
-    });
-    var resp = $.getJSON('https://api.coinmarketcap.com/v1/ticker/tron/?convert=EUR');
-    resp.done(function(data){
-    	$('#Tron').text(data[0].price_eur);
-    });
-    var resp = $.getJSON('https://api.coinmarketcap.com/v1/ticker/bitcoin-cash/?convert=EUR');
-    resp.done(function(data){
-    	$('#Bitcoin-Cash').text(data[0].price_eur);
-    });
+function getPrices($) {
+  var resp = $.getJSON('https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=EUR');
+  resp.done(function(data) {
+    $('#Bitcoin').text(data[0].price_eur);
+  });
+  var resp = $.getJSON('https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=EUR');
+  resp.done(function(data) {
+    $('#Ethereum').text(data[0].price_eur);
+  });
+  var resp = $.getJSON('https://api.coinmarketcap.com/v1/ticker/tron/?convert=EUR');
+  resp.done(function(data) {
+    $('#Tron').text(data[0].price_eur);
+  });
+  var resp = $.getJSON('https://api.coinmarketcap.com/v1/ticker/bitcoin-cash/?convert=EUR');
+  resp.done(function(data) {
+    $('#Bitcoin-Cash').text(data[0].price_eur);
+  });
 };
-
-function infoCoin(){
-	var btcPrice;
-        $.ajax({
-            type: "GET",
-            url: "https://api.coinmarketcap.com/v1/ticker/bitcoin/",
-            dataType: "json",
-            success: function(result){
-            	var node = document.createElement("P");                 
-            	var textnode = document.createTextNode(result[0]);         
-            	node.appendChild(textnode);                              
-            	document.getElementById("info").appendChild(node); 
-                btc = result[0];
-            },
-        error: function(err){
-            console.log(err);
-        }
-        });
-}
-
