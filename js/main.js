@@ -5,9 +5,7 @@ var init = function() {
   // TODO:: Do your initialization job
   console.log('init() called');
   $.ajaxSetup({'cache':true});
-
   getPrices($);
-  callapi();
 
   document.addEventListener('visibilitychange', function() {
     if (document.hidden) {
@@ -60,11 +58,8 @@ function checkTime(i) {
   return i;
 }
 
-function logResults(json){
-  console.log(json);
-}
-function callapi() {
 
+function infoCoin() {
   $.get({
     url: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/info',
     dataType: 'json',
@@ -72,14 +67,17 @@ function callapi() {
       'CMC_PRO_API_KEY': 'cef0c950-831e-4cff-837c-1b81ddc7470b',
       id: 1,
     },
-    success: function(data) {
-      logResults(data);
+    success: function(response) {
+      console.log('request succed');
+      var node = document.createElement("p");
+      var textnode = document.createTextNode(response.data[1].name);
+      node.appendChild(textnode);
+      document.getElementById("info").appendChild(node);
     },
     error: function() {
       console.log("error");
     }
   });
-
 }
 
 function getPrices($) {
