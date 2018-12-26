@@ -4,7 +4,9 @@ var checkTime;
 var init = function() {
   // TODO:: Do your initialization job
   console.log('init() called');
-  $.ajaxSetup({'cache':true});
+  $.ajaxSetup({
+    'cache': true
+  });
   getPrices($);
 
   document.addEventListener('visibilitychange', function() {
@@ -16,6 +18,13 @@ var init = function() {
   });
 
   // add eventListener for keydown
+  var focusable = document.querySelectorAll("a.btn");
+  var i = 0;
+  var firstFocusable = focusable[0];
+  var lastFocusable = focusable[focusable.length - 1];
+  console.log(focusable[0].id)
+  console.log(focusable.length)
+
   document.addEventListener('keydown', function(e) {
     switch (e.keyCode) {
       case 37: //LEFT arrow
@@ -25,8 +34,18 @@ var init = function() {
       case 39: //RIGHT arrow
         break;
       case 40: //DOWN arrow
+        if (i < focusable.length - 1) {
+        	console.log("helooo")
+          firstFocusable = focusable[i];
+          document.getElementById(firstFocusable.id).focus();
+          i++;
+        }else{
+          i=0;
+        }
+
         break;
       case 13: //OK button
+        document.getElementById("btc").click()
         break;
       case 10009: //RETURN button
         tizen.application.getCurrentApplication().exit();
@@ -76,7 +95,7 @@ function infoCoin() {
       var node = document.createElement("p");
       var textnode = document.createTextNode(response.data[1].name);
       node.appendChild(textnode);
-      
+
       document.getElementById("info").appendChild(node);
     },
     error: function() {
