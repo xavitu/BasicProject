@@ -4,23 +4,24 @@
 
 body {
     margin: 50px auto;
-    background-color: #1f1f2e;
+    background-color: #101010;
+    word-wrap: break-word;
 }
 
 header h1 {
-    font-size: 108px;
+    font-size: 80px;
     margin: 0px;
     color: white;
 }
 
 header h2 {
-    font-size: 54px;
+    font-size: 40px;
     margin: 0px;
     color: #888;
     font-style: italic;
 }
 header h3 {
-    font-size: 40px;
+    font-size: 30px;
     margin: 0px;
     color: #888;
     font-style: italic;
@@ -28,87 +29,64 @@ header h3 {
 
 p{
 	font-size: 35px;
-    margin: 0px;
-    color: #888;
     font-style: italic;
 }
 
-nav ul {
-    list-style: none;
-    padding: 20px;
-    display: block;
-    clear: right;
-    background-color: #666;
-    padding-left: 4px;
-    height: 48px;
-}
-
-nav ul li {
-    display: inline;
-    padding: 0px 20px 5px 10px;
-    border-right: 1px solid #ccc;
-}
-
-nav ul li a {
-    color: #EFD3D3;
-    text-decoration: none;
-    font-size: 39px;
-    font-weight: bold;
-}
-
-nav ul li a:hover {
-    color: #fff;
-}
-
-article > header h1 {
-    font-size: 60px;
-    margin-left: 14px;
-}
-
-article > header h1 a {
-    color: #993333;
-}
-
-article > header h1 img {
-    vertical-align:middle;
-}
-
-article > section header h1 {
-    font-size: 48px;
-}
-
-article p {
-    clear: both;
-}
-
-footer p {
+footer p{
     text-align: center;
-    font-size: 36px;
+    font-size: 10px;
     color: #888;
-    margin-top: 30px;
 }
 
-#card{
-	background-color: #535379;
+.card{
 	float:left;
+    margin: 10px;
+    padding: 20px;
+    height: 550px;
 }
 
 .content{
 	overflow: hidden;
-    min-width: 1270px;
+    margin: auto;
 }
-.top_bar{
 
-	background-color:#666;
+.center_info{
+    margin-left: 5%;
+}
+
+.top_bar{
+    text-align: left;
+	background-color:#666666;
+    width: auto;
+    height: 50px;
+    padding-left: 15px;
+    margin: auto;
+    border-radius: 5px;
 }
 
 .left_bar{
 	float:left;
-	background-color: #423;
-	width: 12%;
+	background-color: #666666;
+	width: 10%;
+    height: 550px;
+    text-align: left;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
 }
 .center{
 	float: left;
-	background-color:#124;
-	width: 88%;
+    width: auto;
+    height: 550px;
+    border-radius: 5px;
+}
+.right_bar{
+	float:left;
+	background-color: #666666;
+	width: 10%;
+    height: 550px;
+    text-align: left;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
 }

@@ -72,6 +72,11 @@ function infoCoin() {
       var node = document.createElement("p");
       var textnode = document.createTextNode(response.data[1].name);
       node.appendChild(textnode);
+
+      var node = document.createElement("p");
+      var textnode = document.createTextNode(response.data[1].name);
+      node.appendChild(textnode);
+      
       document.getElementById("info").appendChild(node);
     },
     error: function() {
