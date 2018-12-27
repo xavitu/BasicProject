@@ -8,6 +8,7 @@ var init = function() {
     'cache': true
   });
   getPrices($);
+  bestCoins();
 
   document.addEventListener('visibilitychange', function() {
     if (document.hidden) {
@@ -22,8 +23,6 @@ var init = function() {
   var i = 0;
   var firstFocusable = focusable[0];
   var lastFocusable = focusable[focusable.length - 1];
-  console.log(focusable[0].id);
-  console.log(focusable.length);
 
   document.addEventListener('keydown', function(e) {
     switch (e.keyCode) {
@@ -64,25 +63,6 @@ var init = function() {
 // window.onload can work without <body onload="">
 window.onload = init;
 
-function startTime() {
-  var today = new Date();
-  var h = today.getHours();
-  var m = today.getMinutes();
-  var s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  document.getElementById('divbutton1').innerHTML = 'Current time: ' + h + ':' + m + ':' + s;
-  setTimeout(startTime, 10);
-}
-
-function checkTime(i) {
-  if (i < 10) {
-    i = '0' + i;
-  }
-  return i;
-}
-
-
 function infoCoin() {
   $.get({
     url: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/info',
@@ -96,13 +76,39 @@ function infoCoin() {
       var node = document.createElement("p");
       var textnode = document.createTextNode(response.data[1].name);
       node.appendChild(textnode);
-
       document.getElementById("info").appendChild(node);
     },
     error: function() {
       console.log("error");
     }
   });
+}
+
+function bestCoins(){
+  $.get({
+    url: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
+    dataType: 'json',
+    data: {
+      'CMC_PRO_API_KEY': 'cef0c950-831e-4cff-837c-1b81ddc7470b'
+    },
+    success: function(response) {
+      console.log('request succed');
+      //console.log(response);
+      var node = document.createElement("p");
+      var text = " ";
+      for(var i=0;i<response.data.length;i++){
+        text+=response.data[i].name +":" + response.data[i].quote['USD'].price + " / ";
+      }
+      console.log(text);
+      var textnode = document.createTextNode(text);
+      node.appendChild(textnode);
+      document.getElementById("coins").appendChild(node);
+    },
+    error: function() {
+      console.log("error");
+    }
+  });
+
 }
 
 function getPrices($) {

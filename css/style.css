@@ -27,7 +27,7 @@ header h3 {
     font-style: italic;
 }
 
-p{
+p,marquee{
 	font-size: 35px;
     font-style: italic;
 }
