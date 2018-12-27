@@ -22,30 +22,36 @@ var init = function() {
   var i = 0;
   var firstFocusable = focusable[0];
   var lastFocusable = focusable[focusable.length - 1];
-  console.log(focusable[0].id)
-  console.log(focusable.length)
+  console.log(focusable[0].id);
+  console.log(focusable.length);
 
   document.addEventListener('keydown', function(e) {
     switch (e.keyCode) {
       case 37: //LEFT arrow
         break;
       case 38: //UP arrow
+        if (i < focusable.length - 1) {
+          firstFocusable = focusable[i];
+          document.getElementById(firstFocusable.id).focus();
+          i--;
+        } else {
+          i = 0;
+        }
         break;
       case 39: //RIGHT arrow
         break;
       case 40: //DOWN arrow
         if (i < focusable.length - 1) {
-        	console.log("helooo")
           firstFocusable = focusable[i];
           document.getElementById(firstFocusable.id).focus();
           i++;
-        }else{
-          i=0;
+        } else {
+          i = 0;
         }
 
         break;
       case 13: //OK button
-        document.getElementById("btc").click()
+        document.getElementById(firstFocusable.id).click();
         break;
       case 10009: //RETURN button
         tizen.application.getCurrentApplication().exit();
@@ -88,10 +94,6 @@ function infoCoin() {
     },
     success: function(response) {
       console.log('request succed');
-      var node = document.createElement("p");
-      var textnode = document.createTextNode(response.data[1].name);
-      node.appendChild(textnode);
-
       var node = document.createElement("p");
       var textnode = document.createTextNode(response.data[1].name);
       node.appendChild(textnode);
