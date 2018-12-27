@@ -29,7 +29,7 @@ header h3 {
 
 p,marquee{
 	font-size: 35px;
-    font-style: italic;
+  font-style: italic;
 }
 
 footer p{
@@ -67,6 +67,11 @@ footer p{
   width:80%;
 }
 
+a{
+  word-wrap: break-word;
+  white-space: normal;
+}
+
 .left_bar{
 	float:left;
 	background-color: #666666;
@@ -96,6 +101,12 @@ footer p{
   border-radius: 5px;
 }
 
-.btn{
-  word-wrap: break-word;
+.btn, .form-control {
+  white-space: normal;
+  width: 100%;
+  height: 55px;
+}
+
+#return{
+  display: none;
 }
