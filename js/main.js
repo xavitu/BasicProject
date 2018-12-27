@@ -21,35 +21,39 @@ var init = function() {
   // add eventListener for keydown
   var focusable = document.querySelectorAll("a.btn");
   var i = 0;
-  var firstFocusable = focusable[0];
-  var lastFocusable = focusable[focusable.length - 1];
 
   document.addEventListener('keydown', function(e) {
     switch (e.keyCode) {
       case 37: //LEFT arrow
-      if (i <= focusable.length - 1) {
-        firstFocusable = focusable[i];
-        document.getElementById(firstFocusable.id).focus();
-        i--;
+      if (i > 0) {
+    	i--;
+        document.getElementById(focusable[i].id).focus();
+        console.log(i);
+
       } else {
-        i = 0;
+        i = focusable.length - 1;
+        document.getElementById(focusable[i].id).focus();
+        console.log(i);
       }
         break;
       case 38: //UP arrow
         break;
       case 39: //RIGHT arrow
-      if (i <= focusable.length - 1) {
-        firstFocusable = focusable[i];
-        document.getElementById(firstFocusable.id).focus();
-        i++;
+      if (i < focusable.length - 1) {
+    	i++;
+        document.getElementById(focusable[i].id).focus();
+        console.log(i);
+        
       } else {
         i = 0;
+        document.getElementById(focusable[i].id).focus();
+        console.log(i);
       }
         break;
       case 40: //DOWN arrow
                 break;
       case 13: //OK button
-        document.getElementById(firstFocusable.id).click();
+        document.getElementById(focusable[i].id).click();
         break;
       case 10009: //RETURN button
         tizen.application.getCurrentApplication().exit();
