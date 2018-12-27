@@ -55,13 +55,13 @@ footer p{
 }
 
 .top_bar{
-    text-align: left;
+  text-align: left;
 	background-color:#666666;
-    width: auto;
-    height: 50px;
-    padding-left: 15px;
-    margin: auto;
-    border-radius: 5px;
+  width: auto;
+  height: 50px;
+  padding-left: 15px;
+  margin: auto;
+  border-radius: 5px;
 }
 #search{
   width:80%;
@@ -77,20 +77,25 @@ footer p{
   padding: 10px;
   border-radius: 5px;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 .center{
 	float: left;
-    width: auto;
-    height: 550px;
-    border-radius: 5px;
+  width: auto;
+  height: 550px;
+  border-radius: 5px;
 }
 .right_bar{
 	float:left;
 	background-color: #666666;
 	width: 10%;
-    height: 550px;
-    text-align: left;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 5px;
+  height: 550px;
+  text-align: left;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.btn{
+  word-wrap: break-word;
 }

@@ -8,7 +8,7 @@ var init = function() {
     'cache': true
   });
   getPrices($);
-  //bestCoins();
+  bestCoins();
 
   document.addEventListener('visibilitychange', function() {
     if (document.hidden) {
@@ -43,7 +43,7 @@ var init = function() {
     	i++;
         document.getElementById(focusable[i].id).focus();
         console.log(i);
-        
+
       } else {
         i = 0;
         document.getElementById(focusable[i].id).focus();
@@ -97,13 +97,16 @@ function bestCoins(){
     },
     success: function(response) {
       console.log('request succed');
-      //console.log(response);
       var node = document.createElement("p");
       var text = " ";
       for(var i=0;i<response.data.length;i++){
-        text+=response.data[i].name +":" + response.data[i].quote['USD'].price.toFixed(4) + " / ";
+        text+=response.data[i].name +":" + response.data[i].quote.USD.price.toFixed(4) + " / ";
+        var node1 = document.createElement("li");
+        node1.className = "btn btn-dark mb-2";
+        var textnode1 = document.createTextNode(response.data[i].name);
+        node1.appendChild(textnode1);
+        document.getElementById("all_coins").appendChild(node1);
       }
-      console.log(text);
       var textnode = document.createTextNode(text);
       node.appendChild(textnode);
       document.getElementById("coins").appendChild(node);
