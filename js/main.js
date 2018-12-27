@@ -28,28 +28,27 @@ var init = function() {
   document.addEventListener('keydown', function(e) {
     switch (e.keyCode) {
       case 37: //LEFT arrow
+      if (i < focusable.length - 1) {
+        firstFocusable = focusable[i];
+        document.getElementById(firstFocusable.id).focus();
+        i--;
+      } else {
+        i = 0;
+      }
         break;
       case 38: //UP arrow
-        if (i < focusable.length - 1) {
-          firstFocusable = focusable[i];
-          document.getElementById(firstFocusable.id).focus();
-          i--;
-        } else {
-          i = 0;
-        }
         break;
       case 39: //RIGHT arrow
+      if (i < focusable.length - 1) {
+        firstFocusable = focusable[i];
+        document.getElementById(firstFocusable.id).focus();
+        i++;
+      } else {
+        i = 0;
+      }
         break;
       case 40: //DOWN arrow
-        if (i < focusable.length - 1) {
-          firstFocusable = focusable[i];
-          document.getElementById(firstFocusable.id).focus();
-          i++;
-        } else {
-          i = 0;
-        }
-
-        break;
+                break;
       case 13: //OK button
         document.getElementById(firstFocusable.id).click();
         break;
