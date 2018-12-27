@@ -8,7 +8,7 @@ var init = function() {
     'cache': true
   });
   getPrices($);
-  bestCoins();
+  //bestCoins();
 
   document.addEventListener('visibilitychange', function() {
     if (document.hidden) {
@@ -27,7 +27,7 @@ var init = function() {
   document.addEventListener('keydown', function(e) {
     switch (e.keyCode) {
       case 37: //LEFT arrow
-      if (i < focusable.length - 1) {
+      if (i <= focusable.length - 1) {
         firstFocusable = focusable[i];
         document.getElementById(firstFocusable.id).focus();
         i--;
@@ -38,7 +38,7 @@ var init = function() {
       case 38: //UP arrow
         break;
       case 39: //RIGHT arrow
-      if (i < focusable.length - 1) {
+      if (i <= focusable.length - 1) {
         firstFocusable = focusable[i];
         document.getElementById(firstFocusable.id).focus();
         i++;
@@ -97,7 +97,7 @@ function bestCoins(){
       var node = document.createElement("p");
       var text = " ";
       for(var i=0;i<response.data.length;i++){
-        text+=response.data[i].name +":" + response.data[i].quote['USD'].price + " / ";
+        text+=response.data[i].name +":" + response.data[i].quote['USD'].price.toFixed(4) + " / ";
       }
       console.log(text);
       var textnode = document.createTextNode(text);
