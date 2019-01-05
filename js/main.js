@@ -77,23 +77,6 @@ var init = function() {
 // window.onload can work without <body onload="">
 window.onload = init;
 
-function infoCoin() {
-  $.get({
-    url: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/info',
-    dataType: 'json',
-    data: {
-      'CMC_PRO_API_KEY': 'cef0c950-831e-4cff-837c-1b81ddc7470b',
-      id: 1,
-    },
-    success: function(response) {
-      console.log('request succed');
-    },
-    error: function() {
-      console.log("error");
-    }
-  });
-}
-
 function bestCoins() {
   $.get({
     url: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
@@ -194,4 +177,11 @@ function searchCoin() {
       li[i].style.display = "none";
     }
   }
+}
+
+function refresh(){
+  var marque = document.getElementById("coins");
+  marque.start();
+  getPrices();
+  bestCoins();
 }
