@@ -105,7 +105,7 @@ function bestCoins() {
       var textnode = document.createTextNode(text);
       node.appendChild(textnode);
       document.getElementById("coins").appendChild(node);
-      focusable1 = document.querySelectorAll(".btn");
+      focusable1 = document.querySelectorAll(".btn, #myInput");
     },
     error: function() {
       console.log("error");
