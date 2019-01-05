@@ -67,6 +67,16 @@ footer p{
   width:80%;
 }
 
+#coin_info{
+  color: white;
+  text-align: left;
+}
+
+#return{
+  width: 20%;
+
+}
+
 a{
   word-wrap: break-word;
   white-space: normal;

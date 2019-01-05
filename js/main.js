@@ -141,10 +141,50 @@ function showCoinsInfo(i){
 
 
   var n = document.createElement("p");
-  textt = coins.data[coin].name + ":" + coins.data[coin].quote.USD.price.toFixed(4);
+  textt = coins.data[coin].name;
+  var textn = document.createTextNode(textt);
+  n.style.textAlign = 'center';
+  n.style.fontSize = '50px';
+  n.appendChild(textn);
+  document.getElementById("coin_info").appendChild(n);
+
+  var n = document.createElement("p");
+  textt = "Price: " + coins.data[coin].quote.USD.price.toFixed(4) + "$";
   var textn = document.createTextNode(textt);
   n.appendChild(textn);
   document.getElementById("coin_info").appendChild(n);
+
+  var n = document.createElement("p");
+  textt = "Last Updated: " + coins.data[coin].quote.USD.last_updated;
+  var textn = document.createTextNode(textt);
+  n.appendChild(textn);
+  document.getElementById("coin_info").appendChild(n);
+
+  var n = document.createElement("p");
+  textt = "Change 1h: " + coins.data[coin].quote.USD.percent_change_1h;
+  var textn = document.createTextNode(textt);
+  n.appendChild(textn);
+  document.getElementById("coin_info").appendChild(n);
+
+  var n = document.createElement("p");
+  textt = "Change 24h: " + coins.data[coin].quote.USD.percent_change_24h;
+  var textn = document.createTextNode(textt);
+  n.appendChild(textn);
+  document.getElementById("coin_info").appendChild(n);
+
+  var n = document.createElement("p");
+  textt = "Change 7 days: " + coins.data[coin].quote.USD.percent_change_7d;
+  var textn = document.createTextNode(textt);
+  n.appendChild(textn);
+  document.getElementById("coin_info").appendChild(n);
+
+  var n = document.createElement("p");
+  textt = "Volume 24h: " + coins.data[coin].quote.USD.volume_24h;
+  var textn = document.createTextNode(textt);
+  n.appendChild(textn);
+  document.getElementById("coin_info").appendChild(n);
+
+  console.log(coins.data[coin]);
 
 
 
