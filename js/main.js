@@ -9,16 +9,12 @@ var init = function() {
   });
   getPrices();
   bestCoins();
+  
+  refreshRSS();
   document.getElementById("coin_info").style.display = "none";
   var i = 0;
   var j = 0;
   
-  function refreshRSS() {
-	  setInterval(function(){
-		  $('#rss1').src("http://output37.rssinclude.com/output?type=js&amp;id=1202685&amp;hash=ea91241178c6a61c043cfbc59d99a76d");
-		  console.log("update");
-	  }, 5000); //Delay = 5 seconds 
-  };
   
   // add eventListener for keydown
   document.addEventListener('keydown', function(e) {
@@ -84,6 +80,15 @@ var init = function() {
 };
 // window.onload can work without <body onload="">
 window.onload = init;
+
+function refreshRSS() {
+	  setInterval(function(){
+		  console.log("update");
+		  document.getElementById("rss1").src = "http://output23.rssinclude.com/output?type=js&amp;id=1202685&amp;hash=ea91241178c6a61c043cfbc59d99a76d";
+		  console.log("updated info");
+
+	  }, 5000); //Delay = 5 seconds 
+};
 
 function bestCoins() {
   $.get({
