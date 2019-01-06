@@ -16,9 +16,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-  <!-- Refresh automático del contenido 
+  <!-- Refresh automático del contenido
   <meta http-equiv="refresh" content="60"> -->
-  
+
 </head>
 
 <body>
@@ -28,7 +28,9 @@
       <h2>The info and news of the cryptocurrencies</h2>
     </div>
   </header>
+  <button type="button" id="return" name="button" class="btn btn-dark m-2" onclick="goBack()">Go back</button>
   <div id="coin_info" class="content container-fluid">
+
   </div>
   <div id="content" class="content container-fluid">
     <div class="top_bar row">
@@ -36,7 +38,6 @@
     </div>
 
     <div class="row center_info container-fluid">
-
       <div class="col-2 left_bar">
         <div class="input-group mb-3">
           <input type="text" id="myInput" class="form-control" onkeyup="searchCoin()" placeholder="Search for names..">
@@ -44,59 +45,57 @@
           </div>
         </div>
         <ul class="list-group list-group-flush" id="all_coins">
-        
+
         </ul>
       </div>
-      
+
       <div class="col-7 center">
         <div class="row">
           <button type="button" id="refresh" class="btn btn-dark" onclick="refresh()">Actualizar</button>
         </div>
+
         <div class="row">
-          <div class="card text-white bg-dark" style="width: 18rem;">
+          <div class="card text-white bg-secondary" style="width: 18rem;">
             <img class="card-img mt-2" src="./images/btc.jpg" alt="Card image cap" width="250px" height="250px">
             <div class="card-body">
               <h3 class="card-title">Bitcoin</h3>
               <p id="Bitcoin" class="card-text"></p>
-              <a href="pag1.html" id="btc" class="btn btn-primary">Explore</a>
+              <button id="Bitcoin" class="btn btn-dark" onclick="showCoinsInfo(0)">Explore</button>
             </div>
           </div>
-          <div class="card text-white bg-dark" style="width: 18rem;">
+
+          <div class="card text-white bg-secondary" style="width: 18rem;">
             <img class="card-img mt-2" src="./images/bch.png" alt="Card image cap" width="250px" height="250px">
             <div class="card-body">
               <h3 class="card-title">Bitcoin-Cash</h3>
               <p id="Bitcoin-Cash" class="card-text"></p>
-              <a href="pag1.html" id="bch" class="btn btn-primary">Explore</a>
+              <button id="Bitcoin Cash" class="btn btn-dark" onclick="showCoinsInfo(3)">Explore</button>
             </div>
           </div>
-          <div class="card text-white bg-dark" style="width: 18rem;">
+
+          <div class="card text-white bg-secondary" style="width: 18rem;">
             <img class="card-img mt-2" src="./images/eth.png" alt="Card image cap" width="250px" height="250px">
             <div class="card-body">
               <h3 class="card-title">Ethereum</h3>
               <p id="Ethereum" class="card-text"></p>
-              <a href="pag1.html" id="eth" class="btn btn-primary">Explore</a>
+              <button id="Ethereum" class="btn btn-dark" onclick="showCoinsInfo(1)">Explore</button>
             </div>
           </div>
 
         </div>
-
       </div>
       <div class="col-3 right_bar">
-      
-     	<div class="row" id ="rssRow1">
-			<!-- Cointelegraph Extended -->
-			<script type="text/javascript" id = "rss1" src="http://output23.rssinclude.com/output?type=js&amp;id=1202685&amp;hash=ea91241178c6a61c043cfbc59d99a76d"></script>
-		</div>
-		
-		<div class="row" id ="rssRow2">
-			<!-- CryptoNinjas RSS -->
-			<script type="text/javascript" id = "rss2" src="http://output91.rssinclude.com/output?type=js&amp;id=1203316&amp;hash=a22c8a151878b7be0d882520b9c676be"></script>
-		</div>
-		
-	  </div>
+        <div class="row" id="rssRow1">
+          <!-- Cointelegraph Extended -->
+          <script type="text/javascript" id="rss1" src="http://output23.rssinclude.com/output?type=js&amp;id=1202685&amp;hash=ea91241178c6a61c043cfbc59d99a76d"></script>
+        </div>
+        <div class="row" id="rssRow2">
+          <!-- CryptoNinjas RSS -->
+          <script type="text/javascript" id="rss2" src="http://output91.rssinclude.com/output?type=js&amp;id=1203316&amp;hash=a22c8a151878b7be0d882520b9c676be"></script>
+        </div>
+      </div>
     </div>
   </div>
-  <button type="button" id="return" name="button" class="btn btn-dark m-2" onclick="goBack()">Go back</button>
   <footer>
     <p>&copy; 2018 Rafa&Xavi. All rights reserved.</p>
   </footer>

@@ -9,13 +9,13 @@ var init = function() {
   });
   getPrices();
   bestCoins();
-  
   refreshRSS();
+
   document.getElementById("coin_info").style.display = "none";
   var i = 0;
   var j = 0;
-  
-  
+
+
   // add eventListener for keydown
   document.addEventListener('keydown', function(e) {
     switch (e.keyCode) {
@@ -87,7 +87,7 @@ function refreshRSS() {
 		  document.getElementById("rss1").src = "http://output23.rssinclude.com/output?type=js&amp;id=1202685&amp;hash=ea91241178c6a61c043cfbc59d99a76d";
 		  console.log("updated info");
 
-	  }, 5000); //Delay = 5 seconds 
+	  }, 5000); //Delay = 5 seconds
 };
 
 function bestCoins() {
@@ -120,7 +120,6 @@ function bestCoins() {
       node.appendChild(textnode);
       document.getElementById("coins").appendChild(node);
       focusable1 = document.querySelectorAll("#refresh, .btn:not(#return) ");
-      console.log(focusable1);
     },
     error: function() {
       console.log("error");
@@ -153,7 +152,6 @@ function showCoinsInfo(i){
   focusable1 = document.querySelectorAll("#return");
 
   coin = i;
-  console.log(coin);
   document.getElementById("content").style.display = "none";
   document.getElementById("coin_info").style.display = "block";
   document.getElementById("return").style.display = "block";
@@ -201,12 +199,6 @@ function showCoinsInfo(i){
   var textn = document.createTextNode(textt);
   n.appendChild(textn);
   document.getElementById("coin_info").appendChild(n);
-
-  console.log(coins.data[coin]);
-
-
-
-
 }
 
 function goBack(){
