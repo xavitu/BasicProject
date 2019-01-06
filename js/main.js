@@ -88,7 +88,7 @@ function refreshRSS() {
 		  console.log("updated info");
 
 	  }, 5000); //Delay = 5 seconds
-};
+}
 
 function bestCoins() {
   focusable1 = "";
@@ -203,6 +203,7 @@ function showCoinsInfo(i){
 
 function goBack(){
 
+  focusable1 = " ";
   bestCoins();
   document.getElementById("content").style.display = "block";
   document.getElementById("coin_info").style.display = "none";
