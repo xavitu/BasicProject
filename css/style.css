@@ -64,9 +64,9 @@ a:focus {
 
 .card{
 	float:left;
-    margin: 10px;
-    padding: 20px;
-    height: 550px;
+  margin: 10px;
+  padding: 20px;
+  height: 550px;
 }
 
 .content{
@@ -181,8 +181,10 @@ a{
 
 #rssRow1{
 	margin-bottom:15px;
+  height: auto;
 }
 
 #rssRow2{
 	margin-top: 15px;
+  height: 100px;
 }
