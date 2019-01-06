@@ -38,6 +38,14 @@ footer p{
     color: #888;
 }
 
+button:focus {
+  background-color: cyan;
+}
+
+a:focus {
+  background-color: cyan;
+}
+
 .card{
 	float:left;
     margin: 10px;

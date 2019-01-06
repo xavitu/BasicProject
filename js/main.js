@@ -78,6 +78,7 @@ var init = function() {
 window.onload = init;
 
 function bestCoins() {
+  focusable1 = "";
   $.get({
     url: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
     dataType: 'json',
@@ -105,7 +106,8 @@ function bestCoins() {
       var textnode = document.createTextNode(text);
       node.appendChild(textnode);
       document.getElementById("coins").appendChild(node);
-      focusable1 = document.querySelectorAll(".btn, #myInput");
+      focusable1 = document.querySelectorAll("#refresh, .btn:not(#return) ");
+      console.log(focusable1);
     },
     error: function() {
       console.log("error");
@@ -134,11 +136,14 @@ function getPrices() {
 }
 
 function showCoinsInfo(i){
+
+  focusable1 = document.querySelectorAll("#return");
+
   coin = i;
+  console.log(coin);
   document.getElementById("content").style.display = "none";
   document.getElementById("coin_info").style.display = "block";
   document.getElementById("return").style.display = "block";
-
 
   var n = document.createElement("p");
   textt = coins.data[coin].name;
@@ -192,11 +197,14 @@ function showCoinsInfo(i){
 }
 
 function goBack(){
+
+  bestCoins();
   document.getElementById("content").style.display = "block";
   document.getElementById("coin_info").style.display = "none";
   document.getElementById("return").style.display = "none";
 
   document.getElementById("coin_info").innerHTML = "";
+
 }
 
 function searchCoin() {
