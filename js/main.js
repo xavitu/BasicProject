@@ -12,6 +12,14 @@ var init = function() {
   document.getElementById("coin_info").style.display = "none";
   var i = 0;
   var j = 0;
+  
+  function refreshRSS() {
+	  setInterval(function(){
+		  $('#rss1').src("http://output37.rssinclude.com/output?type=js&amp;id=1202685&amp;hash=ea91241178c6a61c043cfbc59d99a76d");
+		  console.log("update");
+	  }, 5000); //Delay = 5 seconds 
+  };
+  
   // add eventListener for keydown
   document.addEventListener('keydown', function(e) {
     switch (e.keyCode) {
