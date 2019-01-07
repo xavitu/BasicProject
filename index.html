@@ -17,9 +17,9 @@
   <!--<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>-->
 
-  <!-- Refresh automático del contenido 
+  <!-- Refresh automático del contenido
   <meta http-equiv="refresh" content="60"> -->
-  
+
 </head>
 
 <body>
@@ -29,7 +29,9 @@
       <h2>The info and news of the cryptocurrencies</h2>
     </div>
   </header>
+  <button type="button" id="return" name="button" class="btn btn-dark m-2" onclick="goBack()">Go back</button>
   <div id="coin_info" class="content container-fluid">
+
   </div>
   <div id="content" class="content container-fluid">
     <div class="top_bar row">
@@ -37,7 +39,6 @@
     </div>
 
     <div class="row center_info container-fluid">
-
       <div class="col-2 left_bar">
         <div class="input-group mb-3">
           <input type="text" id="myInput" class="form-control" onkeyup="searchCoin()" placeholder="Search for names..">
@@ -45,18 +46,18 @@
           </div>
         </div>
         <ul class="list-group list-group-flush" id="all_coins">
-        
+
         </ul>
       </div>
-      
+
       <div class="col-7 center">
         <div class="row">
           <button type="button" id="refresh" class="btn btn-dark" onclick="refresh()">Actualizar</button>
         </div>
-        
+
         <div class="row" id = "mainRow">
         		<div class="row">
-        
+
 	        	  <div class="col">
 		          <!-- <div class="card text-white bg-dark" style="width: 25%;">
 		            <img class="card-img mt-2" src="./images/btc.jpg" alt="Card image cap" width="250px" height="250px">
@@ -68,10 +69,10 @@
 		            <div id="chartContainer" style="background-color: black;"></div>
 		            <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 					<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
-		            
+
 		          <!-- </div> -->
 		      </div>
-		      
+
 		      <div class="col">
 		          <div class="card text-white bg-dark" style="width: 25%;">
 		            <img class="card-img mt-2" src="./images/bch.png" alt="Card image cap" width="250px" height="250px">
@@ -83,7 +84,7 @@
 		          </div>
 		       </div>
 		    </div>
-		       
+
 		    <div class="row">
 		       <div class="col">
 		          <div class="card text-white bg-dark" style="width: 25%;">
@@ -95,7 +96,7 @@
 		            </div>
 		          </div>
 		       </div>
-		       
+
 		       <div class="col">
 		          <div class="card text-white bg-dark" style="width: 25%;">
 	          		<img class="card-img mt-2" src="./images/trx.jpg" alt="Card image cap" width="250px" height="250px">
@@ -106,27 +107,23 @@
 	         		</div>
 	        		  </div>
 		       </div>
-		       
-        		</div>		       
+
+        		</div>
         </div>
       </div>
 
       <div class="col-3 right_bar">
-      
-     	<div class="row" id ="rssRow1">
-			<!-- Cointelegraph Extended -->
-			<script type="text/javascript" id = "rss1" src="http://output23.rssinclude.com/output?type=js&amp;id=1202685&amp;hash=ea91241178c6a61c043cfbc59d99a76d"></script>
-		</div>
-		
-		<div class="row" id ="rssRow2">
-			<!-- CryptoNinjas RSS -->
-			<script type="text/javascript" id = "rss2" src="http://output91.rssinclude.com/output?type=js&amp;id=1203316&amp;hash=a22c8a151878b7be0d882520b9c676be"></script>
-		</div>
-		
-	  </div>
+        <div class="row" id="rssRow1">
+          <!-- Cointelegraph Extended -->
+          <script type="text/javascript" id="rss1" src="http://output23.rssinclude.com/output?type=js&amp;id=1202685&amp;hash=ea91241178c6a61c043cfbc59d99a76d"></script>
+        </div>
+        <div class="row" id="rssRow2">
+          <!-- CryptoNinjas RSS -->
+          <script type="text/javascript" id="rss2" src="http://output91.rssinclude.com/output?type=js&amp;id=1203316&amp;hash=a22c8a151878b7be0d882520b9c676be"></script>
+        </div>
+      </div>
     </div>
   </div>
-  <button type="button" id="return" name="button" class="btn btn-dark m-2" onclick="goBack()">Go back</button>
   <footer>
     <p>&copy; 2018 Rafa&Xavi. All rights reserved.</p>
   </footer>

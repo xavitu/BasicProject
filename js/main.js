@@ -9,13 +9,14 @@ var init = function() {
   });
   getPrices();
   //bestCoins();
-  
+
   refreshRSS();
+
   document.getElementById("coin_info").style.display = "none";
   var i = 0;
   var j = 0;
-  
-  
+
+
   // add eventListener for keydown
   document.addEventListener('keydown', function(e) {
     switch (e.keyCode) {
@@ -69,11 +70,11 @@ var init = function() {
       case 13: //OK button
         document.getElementById(focusable1[i].id).click();
         break;
-        
+
       case 10009: //RETURN button
         tizen.application.getCurrentApplication().exit();
         break;
-        
+
       case 10253: //EXTRA button
     	  	console.log("tools pressed")
     	  	break;
@@ -81,8 +82,8 @@ var init = function() {
       default:
         console.log('Key code : ' + e.keyCode);
         break;
-        
-      
+
+
     }
   });
 };
@@ -95,10 +96,11 @@ function refreshRSS() {
 		  document.getElementById("rss1").src = "http://output23.rssinclude.com/output?type=js&amp;id=1202685&amp;hash=ea91241178c6a61c043cfbc59d99a76d";
 		  console.log("updated info");
 
-	  }, 5000); //Delay = 5 seconds 
-};
+	  }, 5000); //Delay = 5 seconds
+}
 
 function bestCoins() {
+  focusable1 = "";
   $.get({
     url: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
     dataType: 'json',
@@ -126,7 +128,7 @@ function bestCoins() {
       var textnode = document.createTextNode(text);
       node.appendChild(textnode);
       document.getElementById("coins").appendChild(node);
-      focusable1 = document.querySelectorAll(".btn, #myInput");
+      focusable1 = document.querySelectorAll("#refresh, .btn:not(#return) ");
     },
     error: function() {
       console.log("error");
@@ -155,11 +157,13 @@ function getPrices() {
 }
 
 function showCoinsInfo(i){
+
+  focusable1 = document.querySelectorAll("#return");
+
   coin = i;
   document.getElementById("content").style.display = "none";
   document.getElementById("coin_info").style.display = "block";
   document.getElementById("return").style.display = "block";
-
 
   var n = document.createElement("p");
   textt = coins.data[coin].name;
@@ -204,17 +208,18 @@ function showCoinsInfo(i){
   var textn = document.createTextNode(textt);
   n.appendChild(textn);
   document.getElementById("coin_info").appendChild(n);
-
-  console.log(coins.data[coin]);
-
 }
 
 function goBack(){
+
+  focusable1 = " ";
+  bestCoins();
   document.getElementById("content").style.display = "block";
   document.getElementById("coin_info").style.display = "none";
   document.getElementById("return").style.display = "none";
 
   document.getElementById("coin_info").innerHTML = "";
+
 }
 
 function searchCoin() {
@@ -277,7 +282,7 @@ function chart(){
 			xValue++;
 			yValue = parseInt(data[0][1]);
 		}
-		
+
 		newDataCount = 1;
 		chart.render();
 		setTimeout(updateData, 1500);
@@ -285,5 +290,5 @@ function chart(){
 
 	function updateData() {
 		$.getJSON("https://canvasjs.com/services/data/datapoints.php?xstart="+xValue+"&ystart="+yValue+"&length="+newDataCount+"type=json", addData);
-	}	
+	}
 }
