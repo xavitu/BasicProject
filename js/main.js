@@ -112,7 +112,7 @@ function bestCoins() {
       var text = " ";
       for (var i = 0; i < response.data.length; i++) {
         coins = response;
-        text += response.data[i].name + ":" + response.data[i].quote.USD.price.toFixed(4) + " / ";
+        text += response.data[i].name + ": " + response.data[i].quote.USD.price.toFixed(4) + "$"+ " / ";
         var node1 = document.createElement("li");
         var node2 = document.createElement("a");
         node2.className = "btn btn-dark mb-2";
@@ -127,7 +127,8 @@ function bestCoins() {
       var textnode = document.createTextNode(text);
       node.appendChild(textnode);
       document.getElementById("coins").appendChild(node);
-      focusable1 = document.querySelectorAll("#refresh, .btn:not(#return) ");
+      focusable1 = document.querySelectorAll("#refresh,.btn:not(#return)");
+      console.log(focusable1);
     },
     error: function() {
       console.log("error");
@@ -139,19 +140,19 @@ function bestCoins() {
 function getPrices() {
   var resp = $.getJSON('https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=EUR');
   resp.done(function(data) {
-    $('#Bitcoin').text(data[0].price_eur);
+    $('#Bitcoin').text(data[0].price_eur+"€");
   });
   var resp1 = $.getJSON('https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=EUR');
   resp1.done(function(data) {
-    $('#Ethereum').text(data[0].price_eur);
+    $('#Ethereum').text(data[0].price_eur+"€");
   });
   var resp2 = $.getJSON('https://api.coinmarketcap.com/v1/ticker/tron/?convert=EUR');
   resp2.done(function(data) {
-    $('#Tron').text(data[0].price_eur);
+    $('#Tron').text(data[0].price_eur+"€");
   });
   var resp3 = $.getJSON('https://api.coinmarketcap.com/v1/ticker/bitcoin-cash/?convert=EUR');
   resp3.done(function(data) {
-    $('#Bitcoin-Cash').text(data[0].price_eur);
+    $('#Bitcoin-Cash').text(data[0].price_eur+"€");
   });
 }
 
