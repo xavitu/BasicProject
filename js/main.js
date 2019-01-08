@@ -31,15 +31,15 @@ var init = function() {
         }
         break;
       case 38: //UP arrow
-        if (j >0) {
-        j--;
-        document.getElementById(focusable1[j].id).focus();
-        console.log(j);
+        if (i >0) {
+        i--;
+        document.getElementById(focusable1[i].id).focus();
+        console.log(i);
 
       } else {
-        j = focusable1.length - 1;
-        document.getElementById(focusable1[j].id).focus();
-        console.log(j);
+        i = focusable1.length - 1;
+        document.getElementById(focusable1[i].id).focus();
+        console.log(i);
       }
         break;
       case 39: //RIGHT arrow
@@ -55,13 +55,13 @@ var init = function() {
         }
         break;
       case 40: //DOWN arrow
-        if (j < focusable1.length - 1) {
-          j++;
-          document.getElementById(focusable1[j].id).focus();
-          console.log(j);
+        if (i < focusable1.length - 1) {
+          i++;
+          document.getElementById(focusable1[i].id).focus();
+          console.log(i);
         } else {
-          j = 0;
-          document.getElementById(focusable1[j].id).focus();
+          i = 0;
+          document.getElementById(focusable1[i].id).focus();
           console.log(i);
         }
         break;
