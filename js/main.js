@@ -9,7 +9,7 @@ var init = function() {
   });
   getPrices();
   bestCoins();
-  //refreshRSS();
+  refreshRSS();
 
   document.getElementById("coin_info").style.display = "none";
   var i = 0;
