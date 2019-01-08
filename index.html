@@ -14,8 +14,9 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!--<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+  <!-- <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>-->
+  
 
   <!-- Refresh automático del contenido
   <meta http-equiv="refresh" content="60"> -->
@@ -39,26 +40,33 @@
     </div>
 
     <div class="row center_info container-fluid">
+    		
       <div class="col-2 left_bar">
-        <div class="input-group mb-3">
+        <!--  <div class="input-group mb-3">
           <input type="text" id="myInput" class="form-control" onkeyup="searchCoin()" placeholder="Search for names..">
           <div class="input-group-append">
           </div>
-        </div>
+        </div> -->
+        
+        <!--  <div class="row"> -->
+          <button type="button" id="refresh" class="btn btn-dark" onclick="refresh()">Actualizar</button>
+        <!-- </div> -->
+        
         <ul class="list-group list-group-flush" id="all_coins">
 
         </ul>
       </div>
 
       <div class="col-7 center">
-        <div class="row">
+      
+        <!--  <div class="row">
           <button type="button" id="refresh" class="btn btn-dark" onclick="refresh()">Actualizar</button>
-        </div>
+        </div> -->
 
-        <div class="row" id = "mainRow">
-        		<div class="row">
+        <div class="col-container" id = "mainRow">
+        		<div class="row" id= "centerRowTop" style ="height: 300px;">
 
-	        	  <div class="col">
+	        	  <div class="col-6" align="center">
 		          <!-- <div class="card text-white bg-dark" style="width: 25%;">
 		            <img class="card-img mt-2" src="./images/btc.jpg" alt="Card image cap" width="250px" height="250px">
 		            <div class="card-body">
@@ -66,16 +74,14 @@
 		              <p id="Bitcoin" class="card-text"></p>
 		              <a href="pag1.html" id="btc" class="btn btn-primary">Explore</a>
 		            </div> -->
-		            <div id="chartContainer" style="background-color: black;"></div>
-		            <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-					<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
-
+		            <div id="chartContainer" style="background-color: red;"></div>
+		            
 		          <!-- </div> -->
 		      </div>
 
-		      <div class="col">
-		          <div class="card text-white bg-dark" style="width: 25%;">
-		            <img class="card-img mt-2" src="./images/bch.png" alt="Card image cap" width="250px" height="250px">
+		      <div class="col-6" align="center">
+		          <div class="card text-white bg-dark" style="width: 75%;">
+		            <img class="card-img mt-2" src="./images/bch.png" alt="Card image cap">
 		            <div class="card-body">
 		              <h3 class="card-title">Bitcoin-Cash</h3>
 		              <p id="Bitcoin-Cash" class="card-text"></p>
@@ -85,10 +91,10 @@
 		       </div>
 		    </div>
 
-		    <div class="row">
-		       <div class="col">
-		          <div class="card text-white bg-dark" style="width: 25%;">
-		            <img class="card-img mt-2" src="./images/eth.png" alt="Card image cap" width="250px" height="250px">
+		    <div class="row" id= "centerRowBottom" style = "height: 300px;">
+		       <div class="col-6" align="center">
+		          <div class="card text-white bg-dark" style="width: 75%;">
+		            <img class="card-img mt-2" src="./images/eth.png" alt="Card image cap">
 		            <div class="card-body">
 		              <h3 class="card-title">Ethereum</h3>
 		              <p id="Ethereum" class="card-text"></p>
@@ -97,19 +103,18 @@
 		          </div>
 		       </div>
 
-		       <div class="col">
-		          <div class="card text-white bg-dark" style="width: 25%;">
-	          		<img class="card-img mt-2" src="./images/trx.jpg" alt="Card image cap" width="250px" height="250px">
+		       <div class="col-6" align="center">
+		          <div class="card text-white bg-dark" style="width: 75%;">
+	          		<img class="card-img mt-2" src="./images/trx.jpg" alt="Card image cap">
 	          		<div class="card-body">
 	           			<h3 class="card-title">Tron</h3>
 	           			 <p id="Tron" class="card-text"></p>
 	            			 <a href="pag1.html" id="trx" class="btn btn-primary">Explore</a>
 	         		</div>
 	        		  </div>
-		       </div>
-
+		    	   </div>
         		</div>
-        </div>
+      	</div>
       </div>
 
       <div class="col-3 right_bar">

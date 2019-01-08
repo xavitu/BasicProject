@@ -8,9 +8,8 @@ var init = function() {
     'cache': true
   });
   getPrices();
-  //bestCoins();
-
-  refreshRSS();
+  bestCoins();
+  //refreshRSS();
 
   document.getElementById("coin_info").style.display = "none";
   var i = 0;
@@ -72,7 +71,8 @@ var init = function() {
         break;
 
       case 10009: //RETURN button
-        tizen.application.getCurrentApplication().exit();
+        //tizen.application.getCurrentApplication().exit();
+    	  	goBack();
         break;
 
       case 10253: //EXTRA button
