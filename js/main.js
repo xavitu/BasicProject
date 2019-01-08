@@ -15,7 +15,6 @@ var init = function() {
   var i = 0;
   var j = 0;
 
-
   // add eventListener for keydown
   document.addEventListener('keydown', function(e) {
     switch (e.keyCode) {
