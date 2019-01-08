@@ -188,3 +188,11 @@ a{
 	margin-top: 15px;
   height: 100px;
 }
+
+#mainHeader{
+	text-align:center;
+}
+
+#mainRow{
+	text-align: center;
+}
